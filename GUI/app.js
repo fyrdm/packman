@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addArtifactForm = document.getElementById('add-artifact-form');
     const manifestPreview = document.getElementById('manifest-preview');
     const artifactCount = document.getElementById('artifact-count');
+    const artifactsList = document.getElementById('artifacts-list');
     const btnBrowseFile = document.getElementById('btn-browse-file');
     const filePicker = document.getElementById('art-file-picker');
     const artPathInput = document.getElementById('art-path');
@@ -59,10 +60,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render Preview
+    // Render Preview and interactable elements
     function renderPreview() {
         manifestPreview.innerHTML = syntaxHighlight(manifestState);
         artifactCount.textContent = `${manifestState.files.length} Artifact${manifestState.files.length !== 1 ? 's' : ''}`;
+        
+        // Render Interactive Artifact Pills
+        artifactsList.innerHTML = '';
+        manifestState.files.forEach((file, index) => {
+            const pill = document.createElement('div');
+            pill.className = 'artifact-pill';
+            
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = getBasename(file.path);
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-btn';
+            removeBtn.innerHTML = '&times;';
+            removeBtn.title = 'Remove this artifact';
+            
+            removeBtn.addEventListener('click', () => {
+                removeArtifact(index);
+            });
+
+            pill.appendChild(nameSpan);
+            pill.appendChild(removeBtn);
+            artifactsList.appendChild(pill);
+        });
+    }
+
+    // Remove an Artifact by Index
+    function removeArtifact(index) {
+        manifestState.files.splice(index, 1);
+        renderPreview();
     }
 
     // Global Manifest Input Listeners

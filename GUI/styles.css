@@ -373,6 +373,48 @@ button {
     to { opacity: 1; transform: translateX(0); }
 }
 
+.artifacts-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.artifact-pill {
+    background: rgba(82, 113, 255, 0.15);
+    border: 1px solid rgba(82, 113, 255, 0.3);
+    color: var(--text-main);
+    padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeIn 0.2s ease;
+}
+
+.artifact-pill .remove-btn {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.artifact-pill .remove-btn:hover {
+    background: #ff4757;
+    color: white;
+}
+
 .input-with-button {
     display: flex;
     gap: 0.5rem;
