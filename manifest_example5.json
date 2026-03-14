@@ -1,0 +1,26 @@
+{
+  "version" : "1.0.0",
+  "timestamp": "",
+  "files" : [
+    {
+      "path" : "artifacts/adockerImage.tar",
+      "imageName" : "aname",
+      "imageTag" : "atag",
+      "type" : "dockerImage",
+      "checksum" : "arealSHA256 checksum hash for image tar"
+    },
+    {
+      "path" : "artifacts/adockerImage.tar",
+      "imageName" : "aname",
+      "imageTag" : "atag",
+      "type" : "KVMdockerImage",
+      "checksum" : "arealSHA256 checksum hash for image tar"
+    },
+    {
+      "path" : "artifacts/aconfigfile.anyextension",
+      "config_class" : "aname",
+      "type" : "config",
+      "checksum" : "arealSHA256 checksum hash for image tar"
+    }
+  ]
+}

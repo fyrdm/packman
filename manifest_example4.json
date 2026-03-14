@@ -1,0 +1,13 @@
+{
+  "version" : "1.0.0",
+  "timestamp": "",
+  "files" : [
+    {
+      "path" : "artifacts/adockerImage.tar",
+      "destination" : "/srv/tftp",
+      "type" : "WAPfirmware",
+      "wapId" : "wap0",
+      "checksum" : "arealSHA256 checksum hash for this"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version" : "1.0.0",
+  "timestamp": "",
+  "files" : [
+    {
+      "path" : "artifacts/adockerImage.tar",
+      "imageName" : "aname",
+      "imageTag" : "atag",
+      "type" : "dockerImage",
+      "checksum" : "arealSHA256 checksum hash for this"
+    }
+  ]
+}

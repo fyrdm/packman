@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackMan - Package Manager</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="container">
+        <header class="glass-panel main-header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>PackMan</h1>
+            </div>
+            <p>Premium Package Management Interface</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Panel: Configuration -->
+            <div class="config-panel">
+                <section class="glass-panel">
+                    <h2><span class="step-num">1</span> Global Manifest</h2>
+                    <div class="form-group">
+                        <label for="man-version">Version</label>
+                        <input type="text" id="man-version" value="1.0.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="man-timestamp">Timestamp</label>
+                        <input type="text" id="man-timestamp" placeholder="e.g. 2026-03-15T01:40:00Z">
+                    </div>
+                </section>
+
+                <section class="glass-panel">
+                    <h2><span class="step-num">2</span> Add Artifact</h2>
+                    <form id="add-artifact-form">
+                        <div class="form-group path-input-group">
+                            <label for="art-path">Artifact Path</label>
+                            <div class="input-with-button">
+                                <input type="file" id="art-file-picker" style="display: none;">
+                                <input type="text" id="art-path" required placeholder="Choose a file or paste absolute path...">
+                                <button type="button" id="btn-browse-file" class="btn-secondary" title="Browse for file">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="art-checksum">Checksum (SHA256)</label>
+                            <input type="text" id="art-checksum" readonly placeholder="Auto-calculated from selected file..." class="readonly-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="art-type">Artifact Type</label>
+                            <div class="custom-select">
+                                <select id="art-type" required>
+                                    <option value="" disabled selected>Select Type...</option>
+                                    <option value="dockerImage">Docker Image</option>
+                                    <option value="KVMdockerImage">KVM Docker Image</option>
+                                    <option value="config">Configuration</option>
+                                    <option value="WAPfirmware">WAP Firmware</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Fields Container -->
+                        <div id="dynamic-fields" class="dynamic-fields-container hidden">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="btn-add-artifact">
+                            <span>Add Artifact</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Right Panel: Preview & Build -->
+            <div class="preview-panel">
+                <section class="glass-panel preview-section">
+                    <div class="section-header">
+                        <h2><span class="step-num">3</span> Live Manifest Preview</h2>
+                        <span class="badge" id="artifact-count">0 Artifacts</span>
+                    </div>
+                    <div class="code-container">
+                        <pre><code id="manifest-preview" class="language-json">{}</code></pre>
+                    </div>
+                </section>
+
+                <section class="glass-panel build-section">
+                    <h2><span class="step-num">4</span> Build Package</h2>
+                    <div class="build-controls">
+                        <div class="form-group">
+                            <label for="package-name">Package Name</label>
+                            <input type="text" id="package-name" value="my-update-package">
+                        </div>
+                        <button id="btn-bundle" class="btn-accent">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+                            <span>Bundle Package</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Bottom Panel: Simulated Terminal -->
+        <section class="terminal-panel glass-panel hidden" id="terminal-section">
+            <div class="terminal-header">
+                <div class="window-controls">
+                    <i></i><i></i><i></i>
+                </div>
+                <span>Terminal - Builder</span>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <!-- Logs injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

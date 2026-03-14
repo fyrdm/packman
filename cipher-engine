@@ -1,0 +1,9 @@
+# Assume this is a proper cipher engine binary program executable
+
+# it can be used as:
+# ./cipher-engine enc package.zip
+# output: package.zip.enc
+
+# ./cipher-engine dec package.zip.enc
+# output: package.zip
+    

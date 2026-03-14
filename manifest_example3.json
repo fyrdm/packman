@@ -1,0 +1,12 @@
+{
+  "version" : "1.0.0",
+  "timestamp": "",
+  "files" : [
+    {
+      "path" : "artifacts/aconfigfile.anyextension",
+      "config_class" : "aname",
+      "type" : "config",
+      "checksum" : "arealSHA256 checksum hash for this"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+I need to make an HTML CSS JS project. In this project we must have a web GUI. In this GUI a user shall select artifacts and by selecting options inside GUI a manifest.json file would be written automatically, also a preview of the manifest shall be shown aside while selecting options. As a user bundling a package by selecting options, a package folder would be created and formed up just like the examplepackageTemplate. The manifest.json.signature inside that package folder shall be made using sign_verifey_ssl.sh script. After that artifacts, manifest.json and manifest.json.signature shall be compressed into a zip so that when the zip opened these three components would be extracted directly into an output folder specified in the unzip command. Finally using the binary cipher-engine, final encrypted update package with extension .enc shall be obtained. For the sake of simplicity, as the files scripts and binaries are just mock-ups, just output a loginstead of executing system level commands 
+ 
+
+sign_verify_ssl.sh
+  
+ 
+
+manifest_example1.json
+
+manifest_example2.json
+
+manifest_example3.json
+
+manifest_example4.json
+
+manifest_example5.json
+
+manifest_example6.json
+  
+
+examplePackageTemplate
+ 
